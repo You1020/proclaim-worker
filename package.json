@@ -1,0 +1,19 @@
+{
+  "name": "proclaim-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proclaim News Worker - Cloudflare Workers + KV + RSS",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "kv:create": "wrangler kv namespace create NEWS_KV",
+    "kv:preview": "wrangler kv namespace create NEWS_KV --preview"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.2.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.31.0"
+  }
+}

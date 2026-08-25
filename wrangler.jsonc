@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ancient-wave-eab3",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-25",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "RSS_FEEDS": "https://www.tasnimnews.com/fa/news/feed,https://www.isna.ir/rss,https://www.mehrnews.com/rss"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEWS_KV",
+      "id": "REPLACE_WITH_PRODUCTION_KV_ID",
+      "preview_id": "REPLACE_WITH_PREVIEW_KV_ID"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 * * * *"]
+  }
+}
