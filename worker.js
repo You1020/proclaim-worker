@@ -190,7 +190,9 @@ async function saveNews(env, item) {
   }
   await env.NEWS_KV.put(`news:${id}`, JSON.stringify(news));
   await env.NEWS_KV.put(`slug:${news.slug}`, id);
-  await env.NEWS_KV.put(`url:${encodeURIComponent(item.originalUrl)}`, id);
+  const urlKey = await sha256Hex(item.originalUrl);
+  await env.NEWS_KV.put(`url:${urlKey}`, id);
+  
   await env.NEWS_KV.put(`date:${date}:${id}`, "1");
   return news;
 }
